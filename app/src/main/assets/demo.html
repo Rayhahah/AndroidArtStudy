@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WebviewDemo</title>
+    <script>
+
+    function schemeNext(){
+
+    }
+// Android需要调用的方法
+   function callJS(){
+
+   }
+
+   function helloAndroid(){
+   androidObj.hello('nihao');
+   }
+
+
+   function getStringFromAndroid(){
+   var _str= androidObj.getString('nihao');
+   alert(_str);
+   }
+
+   function testJsWithCallback(msg){
+
+   }
+
+
+    </script>
+    <script src="./demo.js"></script>
+</head>
+
+<body>
+<div>
+    <button type="button" id="btn-hello" onclick="helloAndroid()">跟Android说你好</button>
+</div>
+<div>
+    <button type="button" id="btn-get-string" onclick="getStringFromAndroid()">获取返回值</button>
+</div>
+<div>
+    <a href="test://www.baidu.com" style="font-size:20px">网页Scheme跳转</a>
+</div>
+</body>
+</html>

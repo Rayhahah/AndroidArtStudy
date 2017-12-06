@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.rayhahah.androidartstudy">
+
+    <permission
+        android:name="com.rayhahah.androidartstudy.permission.ACCESS_BOOK_SERVICE"
+        android:protectionLevel="normal"/>
+
+    <uses-permission android:name="com.rayhahah.androidartstudy.permission.ACCESS_BOOK_SERVICE"/>
+    <uses-permission android:name="com.rayhahah.PROVIDER"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:name=".MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".module.view.ViewActivity">
+        </activity>
+        <activity android:name=".module.view.ScrollActivity">
+        </activity>
+
+        <service
+            android:name=".service.StudyService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <service
+            android:name=".service.MyBindService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+        <activity android:name=".module.service.ServiceActivity">
+        </activity>
+        <activity android:name=".module.webview.WebViewActivity">
+        </activity>
+        <activity android:name=".module.broadcastreceiver.BroadcastReceiverActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:scheme="test"/>
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".receiver.MyStaticReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <action android:name="hello"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- 在新进程中开启这个Activity -->
+        <!-- 默认是主进程，就是应用的包名 -->
+        <!-- 新起的进程名为 ： com.rayhahah.androidartstudy:remote -->
+        <!-- : 是一种简写，指在当前包名后面补充，同时表示当前应用的私有进程 -->
+        <activity
+            android:name=".module.ipc.RemoteActivity"
+            android:process=":remote">
+        </activity>
+
+        <service
+            android:name=".service.MyAIDLServerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote">
+        </service>
+
+        <activity android:name=".module.ipc.IPCActivity">
+        </activity>
+
+        <service
+            android:name=".service.MessengerServerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":messenger">
+        </service>
+
+        <provider
+            android:name=".provder.BookProvider"
+            android:authorities="com.rayhahah.androidartstudy.book.provider"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.rayhahah.PROVIDER"
+            android:process=":provider">
+        </provider>
+
+        <activity android:name=".module.contentprovider.ProviderActivity">
+        </activity>
+
+        <service
+            android:name=".service.TCPServerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":socket">
+        </service>
+
+        <activity android:name=".module.ipc.SocketActivity">
+        </activity>
+
+        <service
+            android:name=".service.MyBinderPoolService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote">
+        </service>
+
+        <activity android:name=".module.handler.HandlerActivity">
+        </activity>
+        <activity android:name=".module.handler.AsyncTaskActivity">
+        </activity>
+
+        <service
+            android:name=".service.StudyIntentService"
+            android:exported="false">
+        </service>
+
+        <activity android:name=".module.textview.TextViewActivity">
+        </activity>
+        <activity android:name=".module.view.CanvasActivity">
+        </activity>
+        <activity android:name=".module.view.AnimateActivity">
+        </activity>
+    </application>
+
+</manifest>

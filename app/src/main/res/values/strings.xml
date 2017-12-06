@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">AndroidArtStudy</string>
+    <string name="deleteAll">DELETE  FROM  </string>
+    <string name="text_html_normal">
+        <Data>
+  <![CDATA[今日已有
+  <font color="#f0717e">1</font>
+  人签到，日榜单排在第
+  <font color="#f0717e">1</font>名
+
+]]>
+
+        </Data>
+    </string>
+
+    <string name="text_html_href">
+        <Data>
+<![CDATA[
+<h1>Hello World</h1>
+Here is an
+<img src="R.drawable.cover" /><i>octopus</i>.<br>
+And here is a
+<a href="http://d.android.com">link</a>
+]]>
+        </Data>
+    </string>
+
+    <string name="long_string_article">
+        When girls get together, they like gossip. They always talk about the topic of beauty. They will discuss who is the most beautiful girl in school or they will compare the girls and see who is more charming. As the young people, they usually judge people from appearance. The definition of beauty of course is the one who is thinner and has the pretty face. When they ask me which one is more attractive, then I will look at them for a while, because I want to perceive their personality. My view on beauty is not only from appearance as I think most girls have the pretty faces, but also from the inside, only the quality that differentiates them. The pretty faces will fade away anyway, only the quality that helps people to keep charming. So we need to cultivate the good quality.
+    </string>
+
+
+</resources>
