@@ -52,6 +52,12 @@
         android:layout_height="wrap_content"/>
 
     <Button
+        android:text="框架简读"
+        android:onClick="clickToFrameWork"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
         android:text="TextView学习"
         android:onClick="clickToTextView"
         android:layout_width="match_parent"

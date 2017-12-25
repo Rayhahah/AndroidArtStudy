@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.rayhahah.androidartstudy.module.broadcastreceiver.BroadcastReceiverActivity;
 import com.rayhahah.androidartstudy.module.contentprovider.ProviderActivity;
+import com.rayhahah.androidartstudy.module.framework.FrameWorkActivity;
 import com.rayhahah.androidartstudy.module.ipc.IPCActivity;
 import com.rayhahah.androidartstudy.module.service.ServiceActivity;
 import com.rayhahah.androidartstudy.module.textview.TextViewActivity;
@@ -55,5 +56,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickToTextView(View view) {
         startActivity(new Intent(this, TextViewActivity.class));
+    }
+
+    public void clickToFrameWork(View view) {
+        startActivity(new Intent(this, FrameWorkActivity.class));
     }
 }

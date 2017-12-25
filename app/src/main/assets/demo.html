@@ -2,10 +2,11 @@
 <head>
     <meta charset="utf-8">
     <title>WebviewDemo</title>
+    <link rel="stylesheet" type="text/css" href="./demo.css" />
     <script>
 
     function schemeNext(){
-
+   alert("schemeNext");
     }
 // Android需要调用的方法
    function callJS(){
@@ -27,19 +28,25 @@
    }
 
 
+
     </script>
     <script src="./demo.js"></script>
 </head>
 
 <body>
+<div class="content">
+
 <div>
-    <button type="button" id="btn-hello" onclick="helloAndroid()">跟Android说你好</button>
+    <button style="font-size:50px" type="button" id="btn-hello" onclick="helloAndroid()">跟Android说你好</button>
 </div>
 <div>
-    <button type="button" id="btn-get-string" onclick="getStringFromAndroid()">获取返回值</button>
+    <button type="button" id="btn-get-string" style="font-size:50px" onclick="getStringFromAndroid()">获取返回值</button>
 </div>
 <div>
-    <a href="test://www.baidu.com" style="font-size:20px">网页Scheme跳转</a>
+    <a href="test://www.baidu.com" style="font-size:50px">网页Scheme跳转</a>
+    <!--<iframe src="test://test" style="display:inline">网页Scheme跳转</iframe>-->
 </div>
+</div>
+
 </body>
 </html>
