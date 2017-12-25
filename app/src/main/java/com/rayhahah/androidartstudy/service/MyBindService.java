@@ -12,8 +12,6 @@ public class MyBindService extends Service {
 
     private LocalBinder mLocalBinder = new LocalBinder();
 
-    public MyBindService() {
-    }
 
     /**
      * 绑定对象
@@ -22,6 +20,9 @@ public class MyBindService extends Service {
         public MyBindService getService() {
             return MyBindService.this;
         }
+    }
+
+    public MyBindService() {
     }
 
     /**

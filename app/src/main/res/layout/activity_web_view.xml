@@ -36,10 +36,11 @@
             android:text="Scheme跳转"/>
 
         <Button
+            android:onClick="evaluateClick"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="three"/>
+            android:text="evaluateJavascript"/>
 
         <Button
             android:layout_width="0dp"
