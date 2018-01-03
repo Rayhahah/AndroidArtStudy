@@ -1,9 +1,4 @@
-package com.rayhahah.androidartstudy.module.webview;
-
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-
-import com.rayhahah.androidartstudy.C;
+package com.rayhahah.androidartstudy.module.pattern.adapter;
 
 /**
  * ┌───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┐
@@ -23,22 +18,24 @@ import com.rayhahah.androidartstudy.C;
  *
  * @author Rayhahah
  * @blog http://rayhahah.com
- * @time 2017/11/6
+ * @time 2017/12/27
  * @tips 这个类是Object的子类
  * @fuction
  */
-public class AndroidToJs extends Object {
-    // 定义JS需要调用的方法
-    // 被JS调用的方法必须加入@JavascriptInterface注解
-    //4.2以后引入的注解，防止漏洞，漏洞主要通过getClass -> 获取到runtime -> 获取到exec执行命令，执行linux获取本地文件
-    //4.2以前可以采用监听 consoleMessage来回调互传
-    @JavascriptInterface
-    public void hello(String msg) {
-        Log.e(C.TAG, "JS调用了Android的hello方法 msg=" + msg);
+public class ObjectAdapter implements Target {
+    Adatpee mAdatpee;
+
+    public ObjectAdapter(Adatpee adatpee) {
+        mAdatpee = adatpee;
     }
 
-    @JavascriptInterface
-    public String getString(String msg) {
-        return "Android Wrap" + msg;
+    @Override
+    public void test() {
+        mAdatpee.test();
+    }
+
+    @Override
+    public void speak(String msg) {
+
     }
 }

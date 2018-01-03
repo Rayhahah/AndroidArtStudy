@@ -1,0 +1,9 @@
+<resources>
+    <declare-styleable name="CircleView">
+
+        <attr name="circle_color" format="color">#98ff02</attr>
+        <attr name="circle_size" format="integer">100</attr>
+        <attr name="circle_title" format="string">renyugang</attr>
+    </declare-styleable>
+
+</resources>

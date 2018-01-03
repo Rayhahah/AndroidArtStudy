@@ -14,6 +14,7 @@ import com.rayhahah.androidartstudy.service.MyBindService;
 import com.rayhahah.androidartstudy.service.StudyService;
 import com.rayhahah.androidartstudy.util.RLog;
 
+
 public class ServiceActivity extends AppCompatActivity {
 
     private ServiceConnection mConn;

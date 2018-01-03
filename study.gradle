@@ -1,0 +1,134 @@
+//--------------------------------让我开始学习一下Groovy语法吧------------------
+
+
+task(gradleStudy).doLast {
+    println "start execute gradleStudy"
+    basicTest()
+    closureTest()
+    fileTest()
+    elseTest()
+}
+//基本数据类型与集合的使用
+def basicTest() {
+    def a = 1
+    def b = "hello"
+    def c = "basicTest a=${a}, b=${b}"
+    println c
+
+    def testList = [100, "hello", true]
+    testList[1] = "world"
+    println testList[0]
+    println testList[1]
+    testList << 200
+    println testList.size
+    testList.each {
+        println "testList item= [${it}]"
+    }
+
+    def testMap = ["id": 1, "name": "renyugang", "isMale": true]
+    testMap["id"] = 2
+    testMap.id = 900
+    println testMap.id
+    println testMap.isMale
+
+    testMap.each { key, value ->
+        println "testMap two parameters, find [${key} : ${value}]"
+    }
+
+    testMap.each {
+        println "testMap one parameters, find [${it.key} : ${it.value}]"
+    }
+}
+
+//闭包的使用
+def closureTest() {
+    def closure = { int a, String b ->
+        println "a=${a}, b=${b}, I am a closure!"
+    }
+
+// 这里省略了闭包的参数类型
+    def test = { a, b ->
+        println "a=${a}, b=${b}, I am a closure!"
+    }
+
+    def ryg = { a, b ->
+        a + b
+    }
+
+    closure(100, "closureTest")
+    test.call(100, 200)
+    def c = ryg(100, 200)
+    println c
+}
+//文件的操作
+def fileTest() {
+    def file = new File("gradleStudy.txt")
+    println "read file using two parameters"
+    file.eachLine { line, lineNo ->
+        println "${lineNo} ${line}"
+    }
+
+    println "read file using one parameters"
+    file.eachLine { line ->
+        println "${line}"
+    }
+
+    def xml = new XmlParser().parse(new File("gradleStudy.xml"))
+// 访问declare-styleable节点的name属性
+    println xml['declare-styleable'].@name[0]
+
+// 访问declare-styleable的第三个子节点的内容
+    println xml['declare-styleable'].attr[2].text()
+}
+//一些语法糖
+def elseTest() {
+    Book.Booker bk = new Book.Booker()
+    bk.with {
+        age = 30
+    }
+    Book b = new Book()
+    b.setBooker(bk)
+    b.with {
+        id = 10
+        name = "myName"
+        desc = "myDesc"
+    }
+    println("book =" + b.toString())
+
+    def name = "hh"
+    //判空的优化
+//    if (name != null && name.length > 0) {}
+//    可以替换为：
+    if (name) {
+        println("name not null")
+    }
+
+    //三元表达式的优化
+//    def result = name != null ? name : "Unknown"
+// 省略了name
+    def result = name ?: "Unknown"
+
+//    if (b != null) {
+//        if (b.getBooker() != null) {
+//            if (b.getBooker().getAge() != null) {
+//                System.out.println(b.getBooker().getAge());
+//            }
+//        }
+//    }
+//    可以简写为：
+    println "booker age=" + b?.booker?.age
+
+    //switch和kotlin类似，功能强大
+    //== 和equal一样的用法
+}
+
+class Book {
+    int id
+    String name
+    String desc
+    Booker booker
+    class Booker {
+        int age
+    }
+}
+

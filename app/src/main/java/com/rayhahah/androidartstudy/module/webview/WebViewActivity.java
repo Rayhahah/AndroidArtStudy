@@ -20,6 +20,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
+import com.rayhahah.androidartstudy.C;
 import com.rayhahah.androidartstudy.R;
 
 import java.lang.ref.WeakReference;
@@ -115,7 +116,7 @@ public class WebViewActivity extends AppCompatActivity {
 
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                Log.e("lzh", consoleMessage.message());
+                Log.e(C.TAG, consoleMessage.message());
                 return true;
             }
 

@@ -1,9 +1,4 @@
-package com.rayhahah.androidartstudy.module.webview;
-
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-
-import com.rayhahah.androidartstudy.C;
+package com.rayhahah.androidartstudy.module.pattern;
 
 /**
  * ┌───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┐
@@ -23,22 +18,57 @@ import com.rayhahah.androidartstudy.C;
  *
  * @author Rayhahah
  * @blog http://rayhahah.com
- * @time 2017/11/6
+ * @time 2017/12/26
  * @tips 这个类是Object的子类
  * @fuction
  */
-public class AndroidToJs extends Object {
-    // 定义JS需要调用的方法
-    // 被JS调用的方法必须加入@JavascriptInterface注解
-    //4.2以后引入的注解，防止漏洞，漏洞主要通过getClass -> 获取到runtime -> 获取到exec执行命令，执行linux获取本地文件
-    //4.2以前可以采用监听 consoleMessage来回调互传
-    @JavascriptInterface
-    public void hello(String msg) {
-        Log.e(C.TAG, "JS调用了Android的hello方法 msg=" + msg);
+public class SingletonMode {
+
+    public static final SingletonMode HUNGRY_INSTANCE = new SingletonMode();
+    public static volatile SingletonMode LAZY_INSTANCE;
+
+
+    private SingletonMode() {
+
     }
 
-    @JavascriptInterface
-    public String getString(String msg) {
-        return "Android Wrap" + msg;
+    /**
+     * 标准饿汉
+     *
+     * @return
+     */
+    public static SingletonMode getHungryInstance() {
+        return HUNGRY_INSTANCE;
     }
+
+    /**
+     * 标准懒汉线程安全、原子安全
+     *
+     * @return
+     */
+    public static SingletonMode getLazyInstance() {
+        if (LAZY_INSTANCE == null) {
+            synchronized (SingletonMode.class) {
+                if (LAZY_INSTANCE == null) {
+                    LAZY_INSTANCE = new SingletonMode();
+                }
+            }
+        }
+        return LAZY_INSTANCE;
+    }
+
+    /**
+     * 标准的静态内部类单例
+     * 无缺点，推荐
+     * @return
+     */
+    public static SingletonMode getInnerInstance() {
+        return SingletonModeHolder.sInnerInstance;
+    }
+
+    private static class SingletonModeHolder {
+        private static final SingletonMode sInnerInstance = new SingletonMode();
+    }
+
+
 }

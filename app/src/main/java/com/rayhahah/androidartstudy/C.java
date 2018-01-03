@@ -28,4 +28,5 @@ public class C {
 
     public static final int MESSENGER_MSG_FROM_SERVER = 102;
     public static final int MSG_RECEIVED_NEW_BOOK = 1001;
+    public static final String TAG = "lzh";
 }

@@ -34,7 +34,7 @@ public class MyApp extends Application {
         RLog.Builder builder = new RLog.Builder(this)
                 .isLog(true)
                 .isLogBorder(true)
-                .setTag("lzh");
+                .setTag(C.TAG);
         RLog.init(builder);
     }
 }
