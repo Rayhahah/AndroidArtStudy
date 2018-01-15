@@ -52,6 +52,18 @@
         android:layout_height="wrap_content"/>
 
     <Button
+        android:text="RemoteView学习"
+        android:onClick="clickToRemoteView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:text="Window学习"
+        android:onClick="clickToWindow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
         android:text="TextView学习"
         android:onClick="clickToTextView"
         android:layout_width="match_parent"

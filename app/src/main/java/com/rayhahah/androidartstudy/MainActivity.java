@@ -8,10 +8,12 @@ import android.view.View;
 import com.rayhahah.androidartstudy.module.broadcastreceiver.BroadcastReceiverActivity;
 import com.rayhahah.androidartstudy.module.contentprovider.ProviderActivity;
 import com.rayhahah.androidartstudy.module.ipc.IPCActivity;
+import com.rayhahah.androidartstudy.module.remoteview.RemoteViewActivity;
 import com.rayhahah.androidartstudy.module.service.ServiceActivity;
 import com.rayhahah.androidartstudy.module.textview.TextViewActivity;
 import com.rayhahah.androidartstudy.module.view.ViewActivity;
 import com.rayhahah.androidartstudy.module.webview.WebViewActivity;
+import com.rayhahah.androidartstudy.module.window.WindowActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,5 +57,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickToTextView(View view) {
         startActivity(new Intent(this, TextViewActivity.class));
+    }
+
+    public void clickToRemoteView(View view) {
+        startActivity(new Intent(this, RemoteViewActivity.class));
+    }
+
+    public void clickToWindow(View view) {
+        startActivity(new Intent(this, WindowActivity.class));
     }
 }
